@@ -1,10 +1,15 @@
-﻿namespace EF_1
+﻿using EF_1.DbContexts;
+using Microsoft.EntityFrameworkCore;
+
+namespace EF_1
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            using DbContextBooks dbContextBooks = new DbContextBooks();
+
+            dbContextBooks.Database.MigrateAsync();
         }
     }
 }
